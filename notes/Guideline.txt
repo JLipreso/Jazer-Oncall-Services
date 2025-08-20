@@ -1,0 +1,229 @@
+-----------------------------------------------------------------------------------
+Installation:
+-----------------------------------------------------------------------------------
+    composer require jazer/oncalls:dev-main
+    composer update jazer/oncalls
+    php artisan vendor:publish --tag=jtoncallsconfig-config
+    connection: conn_oncalls
+
+
+
+-----------------------------------------------------------------------------------
+Routes:
+----------------------------------------------------------------------------------- 
+oncall-providers:
+
+    /oncall-providers/create?{
+        "business_name": "string",
+        "business_type": "string",
+        "contact_person": "string",
+        "email": "damian@gmail.com",
+        "phone_primary": "string",
+        "phone_secondary": "string",
+        "address": "string",
+        "city": "string",
+        "state_province": "string",
+        "postal_code": "string",
+        "country": "string",
+        "website": "string",
+        "business_license": "string", 
+        "insurance_details": ["string", "string", "string"], 
+        "coverage_areas": ["string", "string", "string"], 
+        "languages_spoken": ["string", "string", "string"], 
+        "certifications": ["string", "string", "string"],  
+        "years_experience": 0, 
+        "employee_count": 0, 
+        "response_time_guarantee": 0, 
+        "availability_247": "1",  
+        "emergency_contact": "string", 
+        "profile_description": "string", 
+        "profile_image": "string", 
+        "created_by": "string"
+    }
+
+    oncall-providers/update? {
+        "provider_refid": "string",
+        "business_name": "string",
+        "business_type": "string",
+        "contact_person": "string",
+        "email": "string",
+        "phone_primary": "string",
+        "phone_secondary": "string",
+        "address": "string",
+        "city": "string",
+        "state_province": "string",
+        "postal_code": "string",
+        "country": "string",
+        "website": "string",
+        "business_license": "string", 
+        "insurance_details": ["string", "string", "string"], 
+        "coverage_areas": ["string", "string", "string"], 
+        "languages_spoken": ["string", "string", "string"], 
+        "certifications": ["string", "string", "string"], 
+        "years_experience": 0, 
+        "employee_count": 0, 
+        "response_time_guarantee": 0, 
+        "availability_247": "1",  
+        "emergency_contact": "string", 
+        "rating_average": 0, 
+        "total_reviews": 0, 
+        "total_completed_jobs": 0, 
+        "profile_description": "string", 
+        "profile_image": "string", 
+        "updated_by": "string"
+    }
+
+    /oncall-providers/verify{
+        "provider_refid": "string",
+        "verification_notes": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/suspend{
+        "provider_refid": "string",
+        "verification_notes": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/reject{
+        "provider_refid": "string",
+        "verification_notes": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/set-public{
+        "provider_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/set-private{
+        "provider_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/activate{
+        "provider_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/deactivate{
+        "provider_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-providers/delete{
+        "provider_refid": "string"
+    }
+
+    /oncall-providers/paginate?page=1&search=string
+
+    /oncall-providers/singlefetch?provider_refid=string
+
+oncall-technicians:
+
+    /oncall-technicians/create{
+        "provider_refid": "string",
+        "employee_id": "string",
+        "first_name": "string",
+        "last_name": "string",
+        "email": "string",
+        "phone": "string",
+        "emergency_contact": "string",
+        "specializations": ["string", "string", "string"],
+        "certifications": ["string", "string", "string"],
+        "license_numbers": "string",
+        "years_experience": 0,
+        "hourly_rate": 0, 
+        "availability_schedule": {"monday": "09:00-19:00", "tuesday": "09:00-19:00", "wednesday": "09:00-19:00", "thursday": "09:00-19:00", "friday": "09:00-19:00", "saturday": "10:00-16:00", "sunday": "closed"}, 
+        "last_location": {"lat": 11.0112, "lng": 124.6178}, 
+        "last_location_update": "2025-08-19 10:15:00",
+        "profile_photo": "string", 
+        "created_by": "string"
+    }
+
+    oncall-technicians/update{
+        "technician_refid": "string",
+        "provider_refid": "string",
+        "employee_id": "string",
+        "first_name": "string",
+        "last_name": "string",
+        "email": "string",
+        "phone": "string",
+        "emergency_contact": "string",
+        "specializations": ["string", "string", "string"],
+        "certifications": ["string", "string", "string"],
+        "license_numbers": "string",
+        "years_experience": 0,
+        "hourly_rate": 0, 
+        "availability_schedule": {"monday": "09:00-19:00", "tuesday": "09:00-19:00", "wednesday": "09:00-19:00", "thursday": "09:00-19:00", "friday": "09:00-19:00", "saturday": "10:00-16:00", "sunday": "closed"}, 
+        "last_location": {"lat": 11.0112, "lng": 124.6178}, 
+        "last_location_update": "2025-08-19 10:15:00",
+        "total_jobs_completed": 0,
+        "average_rating": 0,
+        "total_reviews": 0,
+        "profile_photo": "string", 
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/busy{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/off-duty{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/on-break{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/clear-background-status{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/fail-background-status{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/expire-background-status{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/pass-drug-test{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/fail-drug-test{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/expire-drug-test{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/activate{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/deactivate{
+        "technician_refid": "string",
+        "updated_by": "string"
+    }
+
+    /oncall-technicians/delete{
+        "technician_refid": "string"
+    }
+
+    /oncall-technicians/paginate?page=1&search="string"
+
+    /oncall-technicians/singlefetch?technician_refid="string"

@@ -1,0 +1,26 @@
+{
+    "name": "jazer/oncalls",
+    "description": "Jazer package to handle oncalls API request",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jazer\\Oncalls\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers": [
+                "Jazer\\Oncalls\\Http\\Provider\\OncallsServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Jazer Tech Solution"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {}
+}
