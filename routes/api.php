@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Jazer\Oncalls\Http\Controllers\Create\CreateOncallBooking;
-use Jazer\Oncalls\Http\Controllers\Create\CreateOncallProviders;
+use Jazer\Oncalls\Http\Controllers\Create\CreateOnCallProviders;
 use Jazer\Oncalls\Http\Controllers\Update\UpdateOnCallProviders;
 use Jazer\Oncalls\Http\Controllers\Update\VerifyOnCallProviders;
 use Jazer\Oncalls\Http\Controllers\Update\SuspendOnCallProviders;
@@ -36,7 +36,7 @@ Route::group(['prefix' => 'api'], function () {
         Route::post('create', [CreateOncallBooking::class, 'create']);
     });
     Route::group(['prefix' => 'oncall-providers'], function () {     
-        Route::post('create', [CreateOncallProviders::class, 'create']);
+        Route::post('create', [CreateOnCallProviders::class, 'create']);
         Route::put('update', [UpdateOnCallProviders::class, 'update']);
         Route::put('verify', [VerifyOnCallProviders::class, 'verify']);
         Route::put('suspend', [SuspendOnCallProviders::class, 'suspend']);

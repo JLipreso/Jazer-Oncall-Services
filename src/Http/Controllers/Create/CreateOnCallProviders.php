@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class CreateOncallProviders extends Controller
+class CreateOnCallProviders extends Controller
 {
     public static function create(Request $request) {
 
